@@ -1,1 +1,1 @@
-Just a joke U+1F60E U+1F919
+Just a joke :sunglasses::call_me_hand:
