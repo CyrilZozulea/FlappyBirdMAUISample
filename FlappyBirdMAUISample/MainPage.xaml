@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlappyBirdMAUISample.MainPage"
+             x:Name="Content">
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTouchSrceen"
+                                      NumberOfTapsRequired="1"/>
+        </Grid.GestureRecognizers>
+        <Image Source="backgroud.gif"
+               Aspect="AspectFill"
+               x:Name="BackGround"/>
+        <Grid x:Name="ObstacleContent"
+              BackgroundColor="Transparent">
+
+        </Grid>
+        <Label Text="0"
+               HorizontalOptions="Center"
+               x:Name="ScoreCount"
+               Margin="0,80,0,0"
+               FontSize="40"
+               FontFamily="MobileFont"
+               FontAttributes="Bold"/>
+        <Grid x:Name="MainGrid">
+            <Grid BackgroundColor="Transparent">
+                <Image Source="bird.png"
+                   x:Name="Bird"
+                   WidthRequest="75"
+                   HeightRequest="75"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   Margin="85,0,0,0"/>
+            </Grid>
+            <Grid BackgroundColor="Transparent">
+                <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         x:Name="GameOverModel"
+                         IsVisible="False">
+                    <Label Text="Game Over"
+                       FontSize="35"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontFamily="MobileFont"
+                       TextColor="Red"/>
+                    <Border StrokeThickness="4"
+                        Margin="10"
+                        StrokeShape="RoundRectangle 30,30,30,30"
+                        Background="#2B0B98"
+                        Padding="16,8">
+                        <Border.Stroke>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="Orange"
+                          Offset="0.1" />
+                                <GradientStop Color="Brown"
+                          Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Stroke>
+                        <StackLayout>
+                            <Label FontAttributes="Bold"
+                                   x:Name="FinalScore"
+                                   TextColor="White"
+                                   Margin="10"
+                                   FontSize="Title"
+                                   FontFamily="MobileFont"
+                                   HorizontalOptions="End"/>
+                            <!--<Label Text="Best:"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   Margin="10"
+                                   FontSize="Title"
+                                   FontFamily="MobileFont"
+                                   HorizontalOptions="End"/>-->
+                            <Grid ColumnDefinitions="*,*">
+                                <Button Grid.Column="0"
+                                    Margin="5"
+                                    Text="Restart"
+                                    FontSize="Title"
+                                    Clicked="OnStart"
+                                    FontAttributes="Bold"
+                                    FontFamily="MobileFont"/>
+                                <Button Grid.Column="1"
+                                    Margin="5"
+                                    Text="Exit"
+                                    Clicked="ExitGame"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"
+                                    FontFamily="MobileFont"/>
+                            </Grid>
+                        </StackLayout>
+                    </Border>
+                </StackLayout>
+            </Grid>
+            <Button x:Name="StartButton"
+                IsVisible="True"
+                Clicked="OnStart"
+                Text="Play"
+                WidthRequest="250"
+                HeightRequest="100"
+                FontSize="45"
+                FontFamily="MobileFont"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </Grid>
+    </Grid>
+</ContentPage>
